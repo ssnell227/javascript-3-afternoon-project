@@ -50,8 +50,16 @@ var employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
-
+const employeeUpdater = () => {
+  employees.forEach((employee, index, array) => {
+    if (employee['firstName'] === 'Theo') {
+      array.splice(index, 1)
+    } else if (employee['firstName'] === 'Lorie') {
+      employee['department'] = 'HR'
+    }
+  })
+  return employees
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -68,8 +76,14 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
     3. Return the updated array.
 */
 
-//Code Here
-
+const removeDuplicates = () => {
+  workplaceAccidents.forEach((number, index, array) => {
+    if (array.indexOf(number) !== array.lastIndexOf(number)) {
+      array.splice(index, 1)
+    }
+  })
+  return workplaceAccidents
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -81,7 +95,7 @@ var cat = {
     {
       name: 'Grumpy',
       activities: ['be grumpy', 'eat food']
-    }, 
+    },
     {
       name: 'Lazy Bones',
       activities: ['sleep', 'pre-sleep naps']
@@ -96,10 +110,12 @@ var cat = {
     2. Assign fluffy2ndFriend the name of Fluffy's 2nd friend.
 */
 
-//Code Here
 var grumpyActivity;
 var fluffy2ndFriend;
 
+grumpyActivity = cat.catFriends[0].activities[1]
+
+fluffy2ndFriend = cat.catFriends[1].name
 
 
 ////////// PROBLEM 4 //////////
@@ -138,25 +154,45 @@ var myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
-//Code Here
+const recordCleaner = () => {
+  myCar.accidents.forEach(accident => {
+    for (let key in accident) {
+      if (key === 'atFaultForAccident') {
+        accident[key] = false
+      }
+    }
+  })
+}
 
 
 
 ////////// PROBLEM 5 //////////
 
 // Do not edit the code below.
-var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
+var numsArr = [[1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 // Do not edit the code above.
 
 /*
   Above is an array of arrays. Use two for loops.
-    1. Write a function called 'looper'. 
+    1. Write a function called 'looper'.
     2. 'looper' should loop over the arrays.
     3.  If the number is odd, replace it with 'odd'.
         If the number is even, replace it with 'even'.
     4. Return the modified numsArr.
 */
 
-//Code Here
+const looper = () => {
+  numsArr.forEach(array => {
+    array.forEach((number, index) => {
+      if (number % 2 === 0)  {
+        array.splice(index, 1, 'even')
+       } else {
+         array.splice(index, 1, 'odd')
+       }
+    })
+  })
+  return numsArr
+}
 
+console.log(numsArr)
 
